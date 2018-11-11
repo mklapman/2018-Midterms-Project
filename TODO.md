@@ -9,7 +9,9 @@ output: github_document
 
 * [x] After finding that FiveThirtyEight was not useful, find data on polling for the 2018 Midterms.
 
-* [ ] Read in polling data in R and do some data exploration and tidying
+* [x] Read in polling data in R.
+
+* [ ] Data exploration and tidying
 
 * [ ] Write code for simulating the polls
 
