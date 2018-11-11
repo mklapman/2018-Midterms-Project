@@ -12,8 +12,4 @@ knitr::opts_chunk$set(
 ```
 # project
 
-The goal of project is to ...
-
-learn new topics in simulation.
-
-TEST
+The goal of project is to explore polling data for the 2018 U.S. midterm elections and try to estimate the overall house popular vote proportions. 
