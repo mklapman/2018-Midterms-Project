@@ -1,0 +1,48 @@
+---
+title: "Data Exploration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+library(tidyverse)
+library(here)
+```
+
+Import the data and explore. Working on issue 1.
+
+```{r, warning=FALSE}
+raw_polls <- read_csv("/cloud/project/DATA/raw-polls.csv")
+gov_state <- read_csv(here("DATA/governor_state_forecast.csv"))
+gov_nat <- read_csv(here("DATA/governor_national_forecast.csv"))
+
+# View(gov_state)
+# View(gov_nat)
+```
+
+After just an initial view of this data set, I don't think it is going to be feasible to pick out any one race from FiveThirtyEight's available data. It may be possible to do some type of simulation using their calculated probabilities and find some type of confidence intervals or something.
+
+```{r}
+aug_sen <- read_csv(here("/DATA/august_senate_polls.csv"))
+
+aug_sen %>% filter(state == "IN") %>% head()
+```
+
+This data set includes all polls for the senate races in different years from the month of August. This is a little out of date, but it could be somewhere to start if I want to do some type of simulation or analysis into the upcomming Indiana senate race. It may not yield great results, but it is at least raw polling data which I could use.
+
+I don't think that FiveThirtyEight has a lot of their raw polling data on github for anyone to access. I may see if I can find just a couple polls which I could pull data from online. This will take a great deal more seaching, but I can use the FiveThirtyEight pollster raitings and the data from 'raw-polls.csv' to find out when polls were taken and if any of the polling firms are non-profits who regularly publish their results. 
+
+
+
+
+# Explore Real Clear Politics data
+
+
+```{r}
+rcp_midterms <- read_csv(here("DATA","RCP_midterms.csv"))
+
+
+```
+
+
+
