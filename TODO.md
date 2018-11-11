@@ -5,9 +5,9 @@ output: github_document
 
 ## List of Milestones
 
-* [ ] Literature Review
+* [x] Examine data from the FiveThirtyEight github page. Find a certain race that would be interesting to simulate and that has plenty of polling data. Maybe Oregon governor race?
 
-* [ ] Examine data from the FiveThirtyEight github page. Find a certain race that would be interesting to simulate and that has plenty of polling data. Maybe Oregon governor race?
+* [x] After finding that FiveThirtyEight was not useful, find data on polling for the 2018 Midterms.
 
 * [ ] Read in polling data in R and do some data exploration and tidying
 
