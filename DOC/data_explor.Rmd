@@ -7,6 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 library(tidyverse)
 library(here)
+library(rsample)
 ```
 
 Import the data and explore. Working on issue 1.
@@ -33,16 +34,55 @@ This data set includes all polls for the senate races in different years from th
 I don't think that FiveThirtyEight has a lot of their raw polling data on github for anyone to access. I may see if I can find just a couple polls which I could pull data from online. This will take a great deal more seaching, but I can use the FiveThirtyEight pollster raitings and the data from 'raw-polls.csv' to find out when polls were taken and if any of the polling firms are non-profits who regularly publish their results. 
 
 
-
-
 # Explore Real Clear Politics data
-
 
 ```{r}
 rcp_midterms <- read_csv(here("DATA","RCP_midterms.csv"))
+rcp_midterms <- rcp_midterms %>% mutate(prop_diff = (Dem - Rep)/100, ord = 1:length(prop_diff),
+                                        Dates = as.Date(Dates, "%m/%d/%Y", 
+                                                        origin = as.Date("01/01/2017","%m/%d/%Y")),
+                                        num_dates = trunc(as.numeric(Dates) - 17167, prec = -1)/10,
+                                        probs = ) 
+
+str(rcp_midterms)
+
+mean(rcp_midterms$prop_diff)
 
 
+# Bootstrap procedure with no weights
+ntimes <- 1000
+boot_propdiff <- rerun(ntimes, sample(rcp_midterms$prop_diff, 
+                                      size = length(rcp_midterms$prop_diff), 
+                                      replace = TRUE))
+boot_dist <- map(boot_propdiff, mean) %>% flatten_dbl
+
+hist(boot_dist)
+
+sd(boot_dist)
+
+quantile(boot_dist, c(.025, .975))
 ```
 
+Doing a generalized linear model may be unreasonable considering I will end up having some negative values as my response is some difference in proportions. So, any kind of logarithmic link function will be invalid. 
 
+I then started to do a basic bootstrap to simulate what different versions of an election would be, considering each poll to be a simulation of an election. But, I would like to place some type of wheighting or a probability vector to figure out how likely each poll could be selected. I think it would be best to weight by how recent the poll was taken before the election. I also noticed that I am leaving out valuable information by only bootstrapping the difference in proportions, as there is still the effect of the undecided voter. The difference between each party could be large, but if both only got about 30% of the vote, then there could be a decent number of undecideds.
+
+So, I think I should use the `bootstraps()` command from the rsamples package to bootstrap entire rows from the dataset. 
+
+
+```{r}
+# Bootstrapping with weights
+
+boot_propdiff <- rerun(ntimes, sample(rcp_midterms$prop_diff, 
+                                      replace = TRUE,
+                                      prob = rcp_midterms$num_dates))
+
+boot_mean <- map(boot_propdiff, mean) %>% flatten_dbl
+mean(boot_mean)
+sd(boot_mean)
+
+new_boot <- bootstraps(rcp_midterms, times = 1000)
+new_boot$splits[1]
+
+```
 
