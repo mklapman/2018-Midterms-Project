@@ -11,7 +11,9 @@ output: github_document
 
 * [x] Read in polling data in R.
 
-* [ ] Data exploration and tidying
+* [x] Data exploration and tidying
+
+* [ ] Create weights for date of poll, type of sample, and sample size
 
 * [ ] Write code for simulating the polls
 
