@@ -1,12 +1,16 @@
 ---
 title: "2018 U.S. Midterm Popular Vote Estimation"
 author: "Matt Klapman"
-date: "11/25/2018"
-output: beamer_presentation
+date: "11/27/2018"
+email: klapmanm@oregonstate.edu
+output: 
+  beamer_presentation:
+    theme: Berlin
+    color: beaver
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, fig.height = 3, fig.width = 6)
+knitr::opts_chunk$set(echo = FALSE, fig.height = 2, fig.width = 6)
 library(tidyverse)
 library(here)
 rcp_midterms <- read_csv(here("DATA","RCP_midterms.csv"))
@@ -71,34 +75,19 @@ ci_noweight <- with(rcp_midterms, boot_ci_propdiff(prop_diff))
 
 - Estimated difference in proportions: Dem +`r round(prop_diff_est, 4)*100`%
 
-- 95% Bootstrapped CI: `r round(ci_noweight,4)*100`
+  95% Bootstrapped CI: (`r round(ci_noweight[1],4)*100`%, `r round(ci_noweight[2],4)*100`%)
 
 - Compare with the *current* results from The New York Times: Dem +`r 51.9-46.3`%
-
-
-## Regression
-
-- Linear regression with sample size weights
-
-```{r}
-mod1 <- glm(prop_diff ~ SampType + Dates, data = rcp_midterms, weights = SampSize)
-mod1_df <- fortify(mod1)
-ggplot(data = mod1_df) + geom_point(aes(x = Dates, y = .fitted, color = SampType)) + 
-  labs(y = "Prop. Diff (Dem - Rep)")
-```
-
 
 ## Other Attempts
 
 - Change probability of being selected in the bootstrap
 
-    - Higher weight for recent polls
-    
-    - Higher weight for *Likely* *Voters* 
+    - Higher weight for recent polls and *likely* *voters*
     
 - Use "relative support" to account for undecided/independent
 
-## Results
+\pause
 
 ```{r}
 rcp_lv <- filter(rcp_midterms, SampType == "LV")
@@ -127,8 +116,17 @@ ggplot(data = confints) +
   labs(y = "Estimated Prop. Diff. (Dem - Rep)", title = "Comparing estimations of 2018 U.S. Midterms")
 ```
 
-## 
+## Thank You!
 
-Thank You!
+Other features of project in Github:
+
+- Regression on difference in proportions
+
+- Additional weightings
+
+- Attempts at streamlining bootstrapping from surveys
+
+
+`klapmanm@oregonstate.edu`
 
 
