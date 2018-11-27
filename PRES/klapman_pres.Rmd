@@ -66,13 +66,13 @@ ci_noweight <- with(rcp_midterms, boot_ci_propdiff(prop_diff))
 
 - Compare with the *current* results from The New York Times: Dem +`r 51.9-46.3`%
 
-## Other Attempts
+## Additional Techniques
 
 - Change probability of being selected in the bootstrap
 
     - Higher weight for recent polls and *likely* *voters*
     
-- Use "relative support" to account for undecided/independent
+- Use "relative support" (i.e. $\frac{Dem}{Dem + Rep}$)
 
 \pause
 
@@ -103,15 +103,13 @@ ggplot(data = confints) +
   labs(y = "Estimated Prop. Diff. (Dem - Rep)", title = "Comparing estimations of 2018 U.S. Midterms")
 ```
 
-## Thank You!
+## Other features of project in Github
 
-Other features of project in Github:
+- Regression
 
-- Regression on difference in proportions
+- Additional weighting schemes
 
-- Additional weightings
-
-- Attempts at streamlining bootstrapping from surveys
+- Streamlining bootstrapping from surveys
 
 
 ## 
