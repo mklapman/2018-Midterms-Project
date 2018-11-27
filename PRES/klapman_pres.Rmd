@@ -76,6 +76,8 @@ ci_noweight <- with(rcp_midterms, boot_ci_propdiff(prop_diff))
 
 \pause
 
+\vspace{.5cm}
+
 ```{r}
 rcp_lv <- filter(rcp_midterms, SampType == "LV")
 ci_lv <- with(rcp_lv, boot_ci_propdiff(prop_diff))
