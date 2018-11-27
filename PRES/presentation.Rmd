@@ -1,13 +1,14 @@
 ---
 title: "2018 U.S. Midterm Popular Vote Estimation"
 author: "Matt Klapman"
+institute: "klapmanm@oregonstate.edu"
 date: "11/27/2018"
-email: klapmanm@oregonstate.edu
 output: 
   beamer_presentation:
     theme: Berlin
     color: beaver
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, fig.height = 2, fig.width = 6)
@@ -38,32 +39,18 @@ library(rsample)
 devtools::load_all()
 ```
 
+
+
 ## 2018 U.S. Midterms
 
 - Took place on Nov. 4th 2018
 
-- House of Representatives races in every district (**main focus**)
-
-- Some Governor and Senate races
+- Data: 309 "generic ballot" polls from Real Clear Politics
 
 ![Current results](us_map.PNG){#id .class width=250}
 
 
-
-## My Data
-
-- 309 "generic ballot" polls from Real Clear Politics
-
-- Polls from January, 2017 - November, 2018
-
-- Example:
-
-\includegraphics{data_snap.PNG}
-
-
 ## Initial Bootstrapping
-
-- Estimate difference in popular vote proportion
 
 - Naive estimate: equal weighting of polls
 
@@ -127,6 +114,8 @@ Other features of project in Github:
 - Attempts at streamlining bootstrapping from surveys
 
 
-`klapmanm@oregonstate.edu`
+## 
 
+\titlepage
 
+[Link to my Github repo](https://github.com/ST541-Fall2018/mklapman-project-elections)
