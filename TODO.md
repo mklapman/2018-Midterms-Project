@@ -13,12 +13,12 @@ output: github_document
 
 * [x] Data exploration and tidying
 
-* [ ] Create weights for date of poll, type of sample, and sample size
+* [x] Create weights for date of poll, type of sample, and sample size
 
-* [ ] Write code for simulating the polls
+* [x] Write code for simulating the polls
 
-* [ ] Compare output of simulations with real life outcomes (after Nov. 6)
+* [x] Compare output of simulations with real life outcomes (after Nov. 4)
 
 * [ ] Write Report
 
-* [ ] Create lightning presentation
+* [x] Create lightning presentation
