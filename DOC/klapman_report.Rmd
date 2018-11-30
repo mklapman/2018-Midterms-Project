@@ -1,0 +1,64 @@
+---
+title: "2018 U.S. Midterm Popular Vote Estimation"
+author: "Matt Klapman"
+date: "11/30/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.height = 2, fig.width = 6)
+library(tidyverse)
+library(here)
+rcp_midterms <- read_csv(here("DATA","RCP_midterms.csv"))
+rcp_midterms <- rcp_midterms %>% mutate(prop_diff = (Dem - Rep)/100, ord = 1:length(prop_diff),
+                                        Dates = as.Date(Dates, "%m/%d/%Y", 
+                                                        origin = as.Date("01/01/2017","%m/%d/%Y")),
+                                        #tr_num_dates = trunc(as.numeric(Dates) - 17167, prec = -1)/10
+                                        num_dates = as.numeric(Dates) - 17167,
+                                        prob = num_dates/sum(num_dates),
+                                        rel_Dem = Dem/(Dem + Rep), 
+                                        rel_Rep = Rep/(Dem + Rep), 
+                                        rel_diff = rel_Dem - rel_Rep,
+                                        prob_full = double(length(prob)))
+
+rcp_midterms$prob_full[rcp_midterms$SampType == "LV"] <-
+  rcp_midterms$prob[rcp_midterms$SampType == "LV"] + 1/3/309
+
+rcp_midterms$prob_full[rcp_midterms$SampType == "RV"] <-
+  rcp_midterms$prob[rcp_midterms$SampType == "RV"] + 2/9/309
+
+rcp_midterms$prob_full[rcp_midterms$SampType == "A"] <-
+  rcp_midterms$prob[rcp_midterms$SampType == "A"] + 1/9/309
+
+library(rsample)
+devtools::load_all()
+```
+
+# Introduction
+
+The 2018 United States midterm elections took place on Nov. 4, 2018. The goal of this project was to analyze polling data related to these elections, attempting to estimate the national popular vote and quantify some type of error along with it. In the past, polling has been an important aspect of election forecasting in political science. But, in the 2016 U.S. presidential election, some doubt was cast on the accuracy of polling. This was due to the perceived failure of polls and polling aggregators like the website \textit{FiveThirtyEight} by the media and the populous. While \textit{FiveThirtyEight} pointed out in their 11-part series [\textbf{The Real Story of 2016}](https://fivethirtyeight.com/features/the-real-story-of-2016/) that the error in 2016 was mostly within the realm of normal polling error and the story around the "failure" of the polls centered around a predominant misunderstanding of probability, I thought it would be interesting to take a stab at predicting this year's election using only polls.
+
+I was able to find polling data from the website \textit{Real Clear Politics (RCP)}. \textit{RCP} had been recording and aggregating polls for this year's election from March 2017 until just days before the election. This data was presented as a table on their website, so it took some work to upload into R. There were a total of 309 polls taken in this time span by a range of entities such as news organizations, non-profit research firms, and partisan political organizations. The polls contained information about the polling organization, date of the poll, sample size, sample type, and the results for the Democratic Party and the Republican Party in a "generic ballot" poll. A "generic ballot" poll just asks a surveyee which party they would vote for in the upcomming election, assigning no politician to the question. I did not have access to information about those who chose neither of the parties. 
+
+<-- ADD SOMETHING HERE -->
+
+## Methods
+
+My initial strategy for estimating the difference in popular vote proportion was the naive estimate of equally weighting the polls and taking a standard mean. After taking the standard mean, I performed a bootstrap
+
+```{r}
+prop_diff_est <- mean(rcp_midterms$prop_diff)
+
+boot
+```
+
+
+## Results
+
+
+## Discussion
+
+
+
+
+
