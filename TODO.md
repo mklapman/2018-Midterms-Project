@@ -19,6 +19,6 @@ output: github_document
 
 * [x] Compare output of simulations with real life outcomes (after Nov. 4)
 
-* [ ] Write Report
+* [x] Write Report
 
 * [x] Create lightning presentation
