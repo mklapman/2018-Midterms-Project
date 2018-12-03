@@ -10,7 +10,7 @@ the DOC folder, as well as my final report. The presentation for this
 project can be found in the PRES folder.
 
   - [Link to final
-    report.](mklapman-project-elections/DOC/klapman_report.pdf)
+    report.](https://github.com/ST541-Fall2018/mklapman-project-elections/blob/master/DOC/klapman_report.pdf)
 
   - [Link to presentation.](/cloud/project/PRES/presentation.pdf) (Can’t
     get these to work right now)

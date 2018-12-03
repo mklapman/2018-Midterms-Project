@@ -18,7 +18,7 @@ loc
 
 The goal of project is to explore polling data for the 2018 U.S. midterm elections and try to estimate the overall house of representatives popular vote proportions. You can find the log of data exploration in the DOC folder, as well as my final report. The presentation for this project can be found in the PRES folder.
 
-* [Link to final report.](mklapman-project-elections/DOC/klapman_report.pdf)  
+* [Link to final report.](https://github.com/ST541-Fall2018/mklapman-project-elections/blob/master/DOC/klapman_report.pdf)  
 
 * [Link to presentation.](/cloud/project/PRES/presentation.pdf)  (Can't get these to work right now)
 
