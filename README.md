@@ -7,9 +7,10 @@ The goal of project is to explore polling data for the 2018 U.S. midterm
 elections and try to estimate the overall house of representatives
 popular vote proportions. You can find the log of data exploration in
 the DOC folder, as well as my final report. The presentation for this
-project can be found in the [PRES folder](/cloud/project/PRES).
+project can be found in the PRES folder.
 
-  - [Link to final report.](/cloud/project/DOC/klapman_report.pdf)
+  - [Link to final
+    report.](mklapman-project-elections/DOC/klapman_report.pdf)
 
   - [Link to presentation.](/cloud/project/PRES/presentation.pdf) (Can’t
     get these to work right now)
@@ -22,4 +23,4 @@ of these were assessed and a summary of them can be found in my report.
 
 There is some analysis that did not make it into the report, namely
 regression analysis and exploring other datasets. Documentation on these
-attempts can be found in the [DOC folder](/cloud/project/DOC) as well.
+attempts can be found in the DOC folder as well.
