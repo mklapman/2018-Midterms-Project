@@ -23,3 +23,5 @@ The goal of project is to explore polling data for the 2018 U.S. midterm electio
 * [Link to presentation.](/cloud/project/PRES/presentation.pdf)  (Can't get these to work right now)
 
 In this project I used four main methods of analyzing and estimating the popular vote in the 2018 U.S. Midterm elections. These methods included a naive estimate, a weighting scheme, subsetting the data in order to capture only the most representative samples, and relative support. All of these were assessed and a summary of them can be found in my report.
+
+There is some analysis that did not make it into the report, namely regression analysis and exploring other datasets. Documentation on these attempts can be found in the DOC folder as well.
