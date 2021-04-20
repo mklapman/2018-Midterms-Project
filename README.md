@@ -10,10 +10,10 @@ the DOC folder, as well as my final report. The presentation for this
 project can be found in the PRES folder.
 
   - [Link to final
-    report.](https://github.com/ST541-Fall2018/mklapman-project-elections/blob/master/DOC/klapman_report.pdf)
+    report.](https://github.com/mklapman/2018-Midterms-Project/blob/master/DOC/klapman_report.pdf)
 
   - [Link to
-    presentation.](https://github.com/ST541-Fall2018/mklapman-project-elections/blob/master/PRES/presentation.pdf)
+    presentation.](https://github.com/mklapman/2018-Midterms-Project/blob/master/PRES/presentation.pdf)
 
 In this project I used four main methods of analyzing and estimating the
 popular vote in the 2018 U.S. Midterm elections. These methods included
